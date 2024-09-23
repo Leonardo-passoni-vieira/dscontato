@@ -4,6 +4,8 @@
  */
 package com.etecriopardo.contatos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Etec
@@ -26,6 +28,7 @@ public class NovoContato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        categoriaGrup = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -63,6 +66,7 @@ public class NovoContato extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Categoria"));
 
+        categoriaGrup.add(rbtAmigo);
         rbtAmigo.setText("Amigos");
         rbtAmigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,8 +74,10 @@ public class NovoContato extends javax.swing.JFrame {
             }
         });
 
+        categoriaGrup.add(rbtFamilia);
         rbtFamilia.setText("Família");
 
+        categoriaGrup.add(rbtTrabalho);
         rbtTrabalho.setText("Trabalho");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -106,6 +112,11 @@ public class NovoContato extends javax.swing.JFrame {
         });
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -214,6 +225,32 @@ public class NovoContato extends javax.swing.JFrame {
         tp.setVisible(true);
     }//GEN-LAST:event_btSairActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        String nome = txtNome.getText();
+        String sobrenome = txtSobrenome.getText();
+        String telefone = txtTelefone.getText();
+        String email = txtEmail.getText();
+        String categoria;
+        if (rbtAmigo.isSelected()){
+            categoria = "Amigo(a)";
+        }
+        else if (rbtFamilia.isSelected()){
+            categoria = "Família";
+        }
+        else if (rbtTrabalho.isSelected()){
+            categoria = "Trabalho";
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Selecione uma categoria");
+            return;
+        }
+        
+        Contato contato = new Contato(nome,sobrenome, telefone);
+        contato.setEmail(email);
+        contato.setCategoria(categoria);
+        System.out.println(contato);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +289,7 @@ public class NovoContato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSair;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.ButtonGroup categoriaGrup;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="categoriaGrup">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -181,6 +185,9 @@
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="rbtAmigo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrup"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Amigos"/>
               </Properties>
               <Events>
@@ -189,11 +196,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtFamilia">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrup"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fam&#xed;lia"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtTrabalho">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrup"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Trabalho"/>
               </Properties>
             </Component>
@@ -239,6 +252,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
